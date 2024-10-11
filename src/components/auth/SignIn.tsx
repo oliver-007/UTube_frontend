@@ -14,8 +14,7 @@ interface IFormInput {
 }
 
 const SignIn = () => {
-  const [SignIn, { data, isLoading, isSuccess, status, error }] =
-    useSingInMutation();
+  const [SignIn, { isLoading, isSuccess, status, error }] = useSingInMutation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const responseMessage = useAppSelector((state) => state.responseMessage);

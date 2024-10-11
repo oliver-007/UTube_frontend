@@ -33,7 +33,7 @@ const Navbar: React.FC<INavbarProps> = ({
   const [showSearch, setShowSearch] = useState(false);
   const { setIsLocked } = useBodyScrollLock();
   const [inputValue, setInputValue] = useState("");
-  const [selectedOption, setSelectedOption] = useState({});
+  // const [selectedOption, setSelectedOption] = useState({});
   const [signOut] = useSignOutMutation();
   const {
     data: currUserData,
@@ -133,10 +133,10 @@ const Navbar: React.FC<INavbarProps> = ({
   }, [searchRef]);
 
   // --------- SEARCH EFFECT  --------
-  useEffect(() => {
-    setInputValue("");
-    setShowSearch(false);
-  }, [selectedOption]);
+  // useEffect(() => {
+  //   setInputValue("");
+  //   setShowSearch(false);
+  // }, [selectedOption]);
 
   // --------- LOG OUT FUNC ---------
   const handleLogOut = async () => {
