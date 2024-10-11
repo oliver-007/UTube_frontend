@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  @apply ring-1 hover:ring-offset-2 ring-slate-300 hover:bg-slate-400  hover:text-white  text-sm rounded-md px-2 py-0.5 uppercase dark:ring-white dark:text-white dark:hover:bg-slate-200 dark:hover:text-zinc-900 duration-200;
+}
+
+.inputClass {
+  @apply border rounded-lg border-gray-200 text-zinc-500 dark:text-zinc-100 caret-sky-500 dark:caret-rose-500 py-2 px-6 bg-zinc-100/40 focus:outline-none focus:ring-1 focus:ring-blue-300 dark:placeholder:text-white/80;
+}
+
+.inputFileClass {
+  @apply w-full file:border-none file:hover:cursor-pointer file:bg-cyan-500 file:text-white file:px-2 file:py-1 file:rounded-full file:hover:bg-cyan-200 file:hover:text-zinc-600 hover:cursor-pointer file:hover:transition-colors file:hover:duration-500 text-sm text-slate-500 py-1 sm:px-5 dark:text-white;
+}
+
+.disabledInputFileClass {
+  @apply w-full file:border-none file:bg-zinc-400/50 file:text-zinc-400 dark:file:text-zinc-400 file:px-2 file:py-1 file:rounded-full text-sm text-zinc-400 py-1 sm:px-5 dark:text-zinc-400;
+}
+
+.formClass {
+  @apply my-5 p-6 border-y-4 border-cyan-400 rounded-lg shadow-zinc-400 shadow-lg  w-full max-w-2xl bg-white dark:bg-stone-600/40 dark:text-white;
+}
+
+.formErrorMessage {
+  @apply text-rose-500 dark:text-amber-400 text-xs sm:text-base -mt-1 pl-4;
+}
