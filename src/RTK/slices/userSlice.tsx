@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { UserType } from "../../types";
+import { IUser } from "../../types";
 
 const userSlice = createSlice({
   name: "user",
@@ -13,7 +13,7 @@ const userSlice = createSlice({
     watchHistory: [] as string[],
   },
   reducers: {
-    addUser: (state, action: PayloadAction<UserType>) => {
+    addUser: (state, action: PayloadAction<IUser>) => {
       // console.log("user-Slice action payload--------", action.payload);
 
       const {

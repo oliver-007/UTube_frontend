@@ -4,6 +4,7 @@ const responseMessageSlice = createSlice({
   name: "responseMessage",
   initialState: "",
   reducers: {
+    // @ts-ignore
     setMessage: (state, action: PayloadAction<string>) => {
       return action.payload;
     },

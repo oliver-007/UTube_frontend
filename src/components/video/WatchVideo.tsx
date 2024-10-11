@@ -11,7 +11,6 @@ import {
   useGetSingleVideoByIdQuery,
   useGetSubscriptionInfoQuery,
   useGetVideoLikeInfoQuery,
-  useRemoveVideoFromPlaylistMutation,
   useSubscriptionTogglerMutation,
   useVideoLikeTogglerMutation,
 } from "../../RTK/slices/API/uTubeApiSlice";
@@ -92,15 +91,6 @@ const WatchVideo = () => {
   const { data: subscriptionData, error: subscriptionError } =
     useGetSubscriptionInfoQuery({ chId, uId }, { skip: !chId });
   const [subscriptionToggler] = useSubscriptionTogglerMutation();
-
-  // ------ REMOVE VIDEO FROM PLAYLIST RTK MUTATION HOOK -------
-  const [
-    removeVideoFromPlaylistMutation,
-    {
-      data: removeVideoFromPlaylistMutationResponse,
-      error: removeVideoFromPlaylistMutationError,
-    },
-  ] = useRemoveVideoFromPlaylistMutation();
 
   // console.log(
   //   "removeVideoFromPlaylistMutationResponse -----------",
@@ -193,16 +183,6 @@ const WatchVideo = () => {
     }
   };
 
-  // -------- HANDLE REMOVE FROM PLAYLIST FUNC --------
-  const handleRemoveVideoFromPlaylist = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    vId: string
-  ) => {
-    e.stopPropagation();
-    const pLId = getAnyPlaylistByIdQueryData.data._id;
-    removeVideoFromPlaylistMutation({ vId, pLId });
-  };
-
   //  -------- CLOSE OPTION-DIV CLICKING ANYWHERE OUTSIDE OPTION-DIV ----------
   useEffect(() => {
     const handleOptionClose = (e: Event) => {
@@ -238,23 +218,6 @@ const WatchVideo = () => {
       navigate("/signin");
     }
   };
-
-  // -------- SET RESPONSE OF removeVideoFromPlaylistMutationResponse --------
-  useEffect(() => {
-    removeVideoFromPlaylistMutationResponse &&
-      dispatch(setMessage(removeVideoFromPlaylistMutationResponse.message));
-
-    removeVideoFromPlaylistMutationError &&
-      dispatch(
-        setMessage(
-          // @ts-ignore
-          removeVideoFromPlaylistMutationError.data.message
-        )
-      );
-  }, [
-    removeVideoFromPlaylistMutationResponse,
-    removeVideoFromPlaylistMutationError,
-  ]);
 
   // ---------- CURRENT PLAYING VIDEO-INDEX OF THE PLAYLIST  -----------
   const currentPlayingVideoIndexOfPlaylist =
@@ -395,10 +358,6 @@ const WatchVideo = () => {
                               key={singleVideo._id}
                               playingVideoId={vId}
                               singleVideo={singleVideo}
-                              handleRemove={handleRemoveVideoFromPlaylist}
-                              playlistOwnerId={
-                                getAnyPlaylistByIdQueryData.data.owner._id
-                              }
                             />
                           )
                         )}
