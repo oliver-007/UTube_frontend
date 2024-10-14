@@ -53,9 +53,15 @@ The app will be running on http://localhost:5173.
 - Redux Toolkit with RTK Query
 - Tailwind CSS
 - TypeScript
+- React-Hook-Form
 - Node.js (Backend)
+- Express
 - MongoDB
+- Mongoose
 - Cloudinary (For media storage)
+- JWT
+- Cookie-parser
+- Multer
 
 ## Usage
 
