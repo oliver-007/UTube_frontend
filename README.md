@@ -16,7 +16,7 @@
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/oliver-007
+git clone https://github.com/oliver-007/UTube_frontend
 ```
 
 2. Navigate to the project directory
